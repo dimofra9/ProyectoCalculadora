@@ -2,13 +2,13 @@ var Calculadora = {
 	existeOp: "no",
 	ultOp: "",
 	cadena: "",
-//Metodo de Inicialización
+// Metodo de Inicializar
 	init: function(){
 		this.asignarEventoBtn('teclado')
 	},
-	
-// Metodos al presionar Boton
-	asiganarEventoBtn: function(selector){
+
+//Metodos al presionar Boton
+	asignarEventoBtn: function(selector){
 		var teclas = document.querySelectorAll('.' + selector + ' img')
 		for(i=0;i<teclas.length;i++){
 			teclas[i].onclick = this.eventoPresionoTecla
@@ -16,52 +16,55 @@ var Calculadora = {
 		}
 	},
 
-//Metodo para llamar funciones de los Botones
+//Metodo para llamar funcion de Botones
 	eventoPresionoTecla: function(event){
-		if(event.target.id == "1" || event.target.id == "2" || event.target.id == "3" || event.target.id == "4" || event.target.id == "5" || event.target.id == "6" || event.target.id == "7" || event.target.id == "8" || event.target.id == "9" || event.target.id == "0") {
+		if(event.target.id == "1" || event.target.id == "2" || event.target.id == "3"
+			|| event.target.id == "4" || event.target.id == "5" || event.target.id == "6"
+			|| event.target.id == "7" || event.target.id == "8" || event.target.id == "9"
+			|| event.target.id == "0") {
 			mostrarNumero(event.target.id)
 		}
+
 		if(event.target.id == "on"){
 			limpiarPantalla()
 		}
-		
+
 		if(event.target.id == "punto"){
 			agregarPunto()
 		}
-		
+
 		if(event.target.id == "sign"){
 			agregarSigno()
 		}
-		
+
 		if(event.target.id == "mas"){
 			sumarValores()
 		}
-		
+
 		if(event.target.id == "menos"){
 			restarValores()
 		}
-		
+
 		if(event.target.id == "por"){
 			multiplicarValores()
 		}
-		
+
 		if(event.target.id == "dividido"){
 			dividirValores()
 		}
-		
-		if(event.target.id  == "igual"){
-			mostarResultado()
+
+		if(event.target.id == "igual"){
+			mostrarResultado()
 		}
-		
+
 		disminuirTamanoTecla(event.target)
-		
-		
+
 	},
-	
+
 	eventoSoltoTecla: function(event){
 		aumentarTamanoTecla(event.target)
-	}	
-	
+	}
+
 }
 
 function sumarValores(){
